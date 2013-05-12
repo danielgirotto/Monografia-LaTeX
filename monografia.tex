@@ -1,19 +1,234 @@
-\documentclass[pnumromarab, normaltoc, a4paper]{abnt}
+\documentclass[pnumromarab, normaltoc, a4paper, 12pt]{abnt}
 
 \usepackage{url}
+\usepackage{tocloft}
 \usepackage{leading}
 \usepackage{lmodern}
 \usepackage{textcomp}
+\usepackage{multicol}
 \usepackage{graphicx}
 \usepackage{abnt-alf}
+\usepackage{varwidth}
 \usepackage{remreset}
 \usepackage[T1]{fontenc}
 \usepackage[normalem]{ulem}
 \usepackage[latin1]{inputenc}
 \usepackage[polutonikogreek,brazil]{babel}
 
+\usepackage[svgnames]{xcolor}
+
+\makeatletter
+\@removefromreset{footnote}{chapter}
+\makeatother
+
+% Para que ele entenda o @
+\makeatletter
+
+% Altera o tamanho das fontes dos capítulos e dos apêndices
+\renewcommand{\ABNTchapterfont}{\bfseries}
+\renewcommand{\ABNTchaptersize}{\Large}
+\renewcommand{\ABNTanapsize}{\Large}
+
+% Altera o espaçamento entre dots
+\renewcommand\@dotsep{2}
+
+% Altera forma de montagem do TOC
+\renewcommand\l@chapter[2]{
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip .3em \@plus\p@
+    \setlength\@tempdima{.85em}%
+    \protect\vspace{-0.75em}%
+    \begingroup
+      \ifthenelse{\boolean{ABNTpagenumstyle}}
+        {\renewcommand{\@pnumwidth}{1.7em}}
+        {}
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \normalsize\ABNTtocchapterfont
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\dotfill \nobreak%
+      \ifthenelse{\boolean{ABNTpagenumstyle}}
+         {%
+         \hb@xt@\@pnumwidth{\hss
+            \ifthenelse{\not\equal{#2}{}}{{\normalfont p.\thinspace#2}}{}}\par
+         }
+         {%
+          \hb@xt@\@pnumwidth{\hss #2}\par
+         }
+      \penalty\@highpenalty
+    \endgroup
+  \fi
+}
+
+\renewcommand*\l@section{\@dottedtocline{1}{0em}{1.6em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{0em}{2.4em}}
+
+\let\stdl@section\l@section
+\renewcommand*{\l@section}[2]{%
+  \leading{1mm}
+  \vspace{-1.48mm}
+  \stdl@section{\textcolor{black}{#1}}{\textcolor{black}{#2}}}
+
+\let\stdl@subsection\l@subsection
+\renewcommand*{\l@subsection}[2]{%
+  \leading{1mm}
+  \vspace{-1.48mm}
+  \stdl@subsection{\textcolor{black}{#1}}{\textcolor{black}{#2}}
+}
+
+% Cria um comando auxiliar para montagem da lista de figuras
+\newcommand{\figfillnum}[1]{%
+  {\hspace{1em}\normalfont\dotfill}\nobreak
+  \hb@xt@\@pnumwidth{\hfil\normalfont #1}{}\par}
+
+% Cria um comando auxiliar para montagem da lista de tabelas
+\newcommand{\tabfillnum}[1]{%
+    {\hspace{1em}\normalfont\dotfill}\nobreak
+    \hb@xt@\@pnumwidth{\hfil\normalfont #1}{}\par}
+
+% Altera a forma de montagem da lista de figuras
+\renewcommand*{\l@figure}[2]{
+    \leftskip 3.1em
+    \rightskip 1.6em
+    \parfillskip -\rightskip
+    \parindent 0em
+    \@tempdima 2.0em
+    \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+    {FIGURA \normalfont #1}\nobreak \figfillnum{#2}}
+
+% Altera a forma de montagem de lista de tabelas
+\renewcommand*{\l@table}[2]{
+    \leftskip 3.4em
+    \rightskip 1.6em
+    \parfillskip -\rightskip
+    \parindent 0em
+    \@tempdima 2.0em
+    \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+    {Tabela \normalfont #1}\nobreak \tabfillnum{#2}}
+
+% Define o comando que monta a lista de siglas
+\newcommand{\listadesiglas}{\pretextualchapter{LISTA DE SIGLAS}\@starttoc{lsg}}
+\newcommand{\sigla}[2]{{\addcontentsline{lsg}{sigla}{\numberline{#1}{#2}}}#1}
+\newcommand{\l@sigla}[2]{
+    \vspace{-0.75cm}
+    \leftskip 0em
+    \parindent 0em
+    \@tempdima 5em
+    \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+    {\normalfont #1}\hfil\nobreak\par}
+
+% Define o tipo de numeração das páginas
+\renewcommand{\chaptertitlepagestyle}{plain}
+
+% Altera a posição da numeração de páginas dos elementos textuais
+\renewcommand{\ABNTchaptermark}[1]{
+    \ifthenelse{\boolean{ABNTNextOutOfTOC}}
+        {\markboth{\ABNTnextmark}{\ABNTnextmark}}
+        {\chaptermark{#1}
+        \pagestyle{\chaptertitlepagestyle}}}
+
+% Redefine o tipo de numeração das páginas
+\renewcommand{\ABNTBeginOfTextualPart}{
+    \renewcommand{\chaptertitlepagestyle}{plainheader}
+    \renewcommand{\thepage}{\arabic{page}}
+    \setcounter{page}{1}}
+
+\makeatother
+
+% Altera o tamanho do parágrafo
+\setlength{\parindent}{1.5cm}
+
 \begin{document}
 
 \include{capa}
+\include{folha_aprovacao}
+\include{dedicatoria}
+\include{agradecimento}
+\include{epigrafe}
+%\include{abstract}
+
+\addcontentsline{toc}{chapter}{LISTA DE ILUSTRAÇÕES}
+
+% Altera o título do TOC
+\renewcommand{\contentsname}{\vspace{.55cm}
+  \normalsize{\textbf{SUMÁRIO}}\vspace{1.5cm}}
+
+\sumario
+\listoffigures
+\listadesiglas
+\addcontentsline{toc}{chapter}{RESUMO}
+\addcontentsline{toc}{chapter}{ABSTRACT}
+
+\chapter{INTRODUÇÃO}
+\section{Contextualização}
+\section{Delimitação do problema}
+\section{Justificativa}
+\section{Objetivos}
+\subsection{Objetivo geral}
+\subsection{Objetivos específicos}
+\section{Procedimentos Metodológicos}
+\section{Estrutura do Trabalho}
+
+\chapter{NORMAS PARA DIGITAÇÃO DO TRABALHO}
+
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=100mm]{images/logotipo.jpg}
+\caption{http://publicdomainreview.org/2012/07/09/arabic-machine-manuscript}
+\end{center}
+\end{figure}
+
+\section{Apresentação}
+\section{Elementos Textuais}
+\subsection{Introdução}
+\subsection{Desenvolvimento}
+\subsection{Conclusões e trabalhos futuros}
+\section{Elementos Pós-Textuais}
+\subsection{Referências bibliográficas}
+\subsection{Bibliografia complementar}
+\subsection{Apêndices}
+\subsection{Anexos}
+\section{Elementos de apoio ao texto}
+\section{Editoração}
+\subsection{Formatação de estilos}
+\section{Conclusão}
+
+
+
+\begin{table}[ht]
+\caption{Lemas mais usados por Cícero (cima pra baixo, esquerda pra direita)}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+dico & uerbum & quantus & oportet & lex & anima \\ \hline
+possum & populus & suis & auctoritas & modius & liber \\ \hline
+uideo & uita & ciuis & quaero & ars & exercitus \\ \hline
+homo & animus & suo & facilis & arbitror & reliquus \\ \hline
+facio & tuus & suus & prouincia & quin & praetor \\ \hline
+causa & scribo & sententia & studium & genus & honor \\ \hline
+habeo & multus & semper & loco & uirus & diligo \\ \hline
+uolo & lego & nullus & intellego & plus & bene \\ \hline
+iudex & consilium & ceterus & corpus & periculum & bellum \\ \hline
+tantus & ius & saepe & dignitas & optimus & sentio \\ \hline
+bonus & oratio & maior & pater & soleo & domus \\ \hline
+ratio & inquam & uir & dolor & scriba & sapio \\ \hline
+primus & dies & totus & scio & opus & rego \\ \hline
+publica & gener & pars & do & dica & diu \\ \hline
+maximus & uirtus & iudicium & ago & modus & imperium \\ \hline
+tempus & pono & ueneo & necesse & proficiscor & plures \\ \hline
+littera & itaque & pecunia & audio & mors & accipio \\ \hline
+nunc & deus & minor & umquam & spes & praesertim \\ \hline
+senatus & locus & debeo & fortuna & urbs & uno \\ \hline
+uis & ciuitas & numquam & ullus & pario & malis \\ \hline
+multa & consul & fors & omnino & duo & uoluntas \\ \hline
+natura & satis & summo & orator & gratia & amicus \\ \hline
+puto & nomen & animo & salus & memoria & moueo \\ \hline
+magnus & publico & potis & utor & credo & mens \\ \hline
+alter & solus & fero & uoluptas & populor & postea \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \end{document}
