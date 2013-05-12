@@ -49,15 +49,14 @@
 \renewcommand{\ABNTanapsize}{\Large}
 
 % Altera o espaçamento entre dots
-\renewcommand\@dotsep{2}
+\renewcommand\@dotsep{0.5}
 
 % Altera forma de montagem do TOC
 \renewcommand\l@chapter[2]{
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
-    \vskip .3em \@plus\p@
+    \vskip 0em \@plus\p@
     \setlength\@tempdima{.85em}%
-    \protect\vspace{-0.75em}%
     \begingroup
       \ifthenelse{\boolean{ABNTpagenumstyle}}
         {\renewcommand{\@pnumwidth}{1.7em}}
@@ -172,7 +171,7 @@
 \addcontentsline{toc}{chapter}{LISTA DE ILUSTRAÇÕES}
 
 % Altera o título do TOC
-\renewcommand{\contentsname}{\vspace{.55cm}
+\renewcommand{\contentsname}{\vspace*{.7cm}
   \normalsize{\textbf{SUMÁRIO}}\vspace{1.5cm}}
 
 \sumario
