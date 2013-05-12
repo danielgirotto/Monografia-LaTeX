@@ -160,29 +160,55 @@
 
 \begin{document}
 
+%\let\size@chapter\small
+
 \include{capa}
 \include{folha_aprovacao}
 \include{dedicatoria}
 \include{agradecimento}
 \include{epigrafe}
-\include{resumo}
-\include{abstract}
-
-\addcontentsline{toc}{chapter}{LISTA DE ILUSTRAÇÕES}
 
 % Altera o título do TOC
 \renewcommand{\contentsname}{\vspace*{.7cm}
   \normalsize{\textbf{SUMÁRIO}}\vspace{1.5cm}}
 
+
+\renewcommand{\thepage}{\Roman{page}}
 \sumario
-\listoffigures
-\listadesiglas
+
+\addcontentsline{toc}{chapter}{LISTA DE ILUSTRAÇÕES}
+%\listoffigures
+
 \addcontentsline{toc}{chapter}{RESUMO}
+\include{resumo}
+
 \addcontentsline{toc}{chapter}{ABSTRACT}
+\include{abstract}
+
+
+\listadesiglas
 
 \chapter{INTRODUÇÃO}
 \section{Contextualização}
+No texto da apresentação, aborde o tema do trabalho iniciando por uma
+discussão ampla do conteúdo, até tratar especificamente o que vai ser
+desenvolvido.
+Fazendo uma analogia a uma pirâmide invertida, o texto poderia ficar assim
+distribuído:
+
+\begin{figure}[hbtp]
+\begin{center}
+\caption{Estrutura do item Apresentação(Item 1.1)}
+\includegraphics[width=150mm]{images/imagem1.jpeg}
+
+\end{center}
+\end{figure}
+
 \section{Delimitação do problema}
+Aqui você coloca o problema a ser trabalhado no TCC. Analise se o que você está
+colocando não é um objetivo. Lembre-se, ``implementar alguma coisa não é
+problema, mas sim, objetivo''.
+
 \section{Justificativa}
 \section{Objetivos}
 \subsection{Objetivo geral}
@@ -213,6 +239,21 @@
 \section{Editoração}
 \subsection{Formatação de estilos}
 \section{Conclusão}
+\chapter{CAPITULO 3 - TESTE DE TÍTULO COM NOME GRANDE TESTE DE TÍTULO COM NOME
+GRANDE TESTE DE TÍTULO COM NOME GRANDE}
+\section{Teste de título com nome grande Teste de título com nome grande Teste
+de com nome grande}
+\subsection{Teste de título com nome grande Teste de título com nome grande
+Teste de título com nome grande}
+\section{Conclusão}
+\chapter{CAPÍTULO 4}
+\section{Formatando Tabelas}
+\subsection{Sub-título aa}
+\section{Sub-Título b}
+\section{Conclusão}
+\chapter{CONCLUSÕES}
+\section{Considerações Finais}
+\section{Trabalhos Futuros}
 
 \begin{table}[ht]
 \caption{Lemas mais usados por Cícero (cima pra baixo, esquerda pra direita)}
