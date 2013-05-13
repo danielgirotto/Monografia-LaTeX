@@ -31,10 +31,9 @@
 \usepackage{remreset}
 \usepackage[T1]{fontenc}
 \usepackage[normalem]{ulem}
+\usepackage[svgnames]{xcolor}
 \usepackage[latin1]{inputenc}
 \usepackage[polutonikogreek,brazil]{babel}
-
-\usepackage[svgnames]{xcolor}
 
 \makeatletter
 \@removefromreset{footnote}{chapter}
@@ -44,7 +43,7 @@
 \makeatletter
 
 % Altera o tamanho das fontes dos capítulos e dos apêndices
-\renewcommand{\ABNTchapterfont}{\bfseries}
+\renewcommand{\ABNTchapterfont}{\bfseries\normalsize}
 \renewcommand{\ABNTchaptersize}{\Large}
 \renewcommand{\ABNTanapsize}{\Large}
 
@@ -55,15 +54,15 @@
 \renewcommand\l@chapter[2]{
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
-    \vskip 0em \@plus\p@
-    \setlength\@tempdima{.85em}%
+    \vskip 0.5em \@plus\p@
+    \setlength\@tempdima{.8em}%
     \begingroup
       \ifthenelse{\boolean{ABNTpagenumstyle}}
         {\renewcommand{\@pnumwidth}{1.7em}}
         {}
       \parindent \z@ \rightskip \@pnumwidth
       \parfillskip -\@pnumwidth
-      \leavevmode \normalsize\ABNTtocchapterfont
+      \leavevmode \small\bfseries\fontsize{3.7mm}{2mm}\selectfont
       \advance\leftskip\@tempdima
       \hskip -\leftskip
       #1\nobreak\dotfill \nobreak%
@@ -160,8 +159,6 @@
 
 \begin{document}
 
-%\let\size@chapter\small
-
 \include{capa}
 \include{folha_aprovacao}
 \include{dedicatoria}
@@ -169,9 +166,8 @@
 \include{epigrafe}
 
 % Altera o título do TOC
-\renewcommand{\contentsname}{\vspace*{.7cm}
-  \normalsize{\textbf{SUMÁRIO}}\vspace{1.5cm}}
-
+\renewcommand{\contentsname}{\vspace*{.6cm}
+  \normalsize{\textbf{SUMÁRIO}}\vspace{1.4cm}}
 
 \renewcommand{\thepage}{\Roman{page}}
 \sumario
@@ -179,14 +175,13 @@
 \addcontentsline{toc}{chapter}{LISTA DE ILUSTRAÇÕES}
 %\listoffigures
 
+\listadesiglas
+
 \addcontentsline{toc}{chapter}{RESUMO}
 \include{resumo}
 
 \addcontentsline{toc}{chapter}{ABSTRACT}
 \include{abstract}
-
-
-\listadesiglas
 
 \chapter{INTRODUÇÃO}
 \section{Contextualização}
@@ -216,7 +211,7 @@ problema, mas sim, objetivo''.
 \section{Procedimentos Metodológicos}
 \section{Estrutura do Trabalho}
 
-\chapter{NORMAS PARA DIGITAÇÃO DO TRABALHO}
+\chapter{NORMAS PARA DIGITAÇÃO DO TRABALHO DE CONCLUSÃO DE CURSO}
 
 \begin{figure}[hbtp]
 \begin{center}
