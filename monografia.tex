@@ -50,8 +50,6 @@
 % Altera o espaçamento entre dots
 \renewcommand\@dotsep{0.5}
 
-\renewcommand\@dotsep{2}
-
 % Altera forma de montagem do TOC
 \renewcommand\l@chapter[2]{
   \ifnum \c@tocdepth >\m@ne
@@ -94,7 +92,7 @@
 \renewcommand*{\l@subsection}[2]{%
   \leading{1mm}
   \vspace{-1.48mm}
-  \stdl@subsection{\it \textcolor{black}{#1}}{\textcolor{black}{#2}}
+  \stdl@subsection{\em\textcolor{black}{#1}}{\textcolor{black}{#2}}
 }
 
 % Cria um comando auxiliar para montagem da lista de figuras
@@ -158,13 +156,12 @@
 }
 
 %http://www.umiacs.umd.edu/~lsd/iccv/latex-macros.html
-\def\subsize{\@setsize\subsize{12pt}\xipt\@xipt}
 \def\section{\@startsection {section}{1}%
   {\z@}{1.0ex plus 1ex minus .2ex \leading{7.5mm}}%
   {2ex plus .2ex}{\normalsize\bf}}
 
-\def\subsection{\@startsection {subsection}{2}{\z@}{.2ex plus 1ex}
-  {.2ex plus .2ex}{\subsize\it}}
+\def\subsection{\@startsection {subsection}{2}{\z@}{4mm plus 1ex}
+  {4mm plus 4mm}{\normalsize\em}}
 
 % Define o tipo de numeração das páginas
 \renewcommand{\chaptertitlepagestyle}{plain}
@@ -233,16 +230,17 @@ colocando não é um objetivo. Lembre-se, ``implementar alguma coisa não é
 problema, mas sim, objetivo''.
 
 \section{Justificativa}
-Aqui você vai dizer porquê trabalhar o problema acima é importante para a
-área da computação ou para o futuro usuário.
+Aqui você vai dizer porquê trabalhar o problema acima é importante para a área
+da computação ou para o futuro usuário.
 
 Procure embasar a justificativa com citações de autores que você esteja
-estudando.
+estudando.\\
+\\
 
 \section{Objetivos}
 \subsection{Objetivo geral}
-Geralmente é um único parágrafo que contém o grande objetivo de trabalhar
-o tema escolhido, ou seja, o principal objetivo do TCC é ...
+Geralmente é um único parágrafo que contém o grande objetivo de trabalhar o tema
+escolhido, ou seja, o principal objetivo do TCC é ...
 
 \subsection{Objetivos específicos}
 A partir do objetivo geral, são detalhados alguns objetivos específicos que irão
@@ -269,11 +267,6 @@ com detalhes específicos de cada etapa.
 Apresentar a estrutura do trabalho, ou seja, como ele está estruturado em
 termos de capítulos a partir da revisão bibliográfica.
 
-\sigla{DDS}{- Descrição da Sigla}
-\sigla{DDS}{- Descrição da Sigla}
-\sigla{DDS}{- Descrição da Sigla}
-\sigla{DDS}{- jkjk}
-
 \chapter{NORMAS PARA DIGITAÇÃO DO TRABALHO DE CONCLUSÃO DE CURSO}
 O segundo capítulo visa apresentar conceitos e trabalhos relacionados ao tema.
 Quanto a estrutura da revisão bibliográfica pode ser apresentada em um ou mais
@@ -289,46 +282,18 @@ Tecnologias da Informação. Cada subcapítulo deverá ter as considerações finais,
 estabelecendo uma sequência textual (contribuições e comentários por parte do
 aluno).
 
-Em cada início de capítulo, procure fazer um parágrafo de apresentação (de 6
-a 10 linhas) falando sobre o que será abordado no mesmo. Por exemplo, neste
-capítulo são apresentados todos os estilos utilizados no modelo do TCC, bem como
-os dados que foram utilizados para formatação dos mesmos. Perceba que, para cada
-tipo de página do relatório (Figura 2), há um conjunto de estilos que são
+Em cada início de capítulo, procure fazer um parágrafo de apresentação (de 6 a
+10 linhas) falando sobre o que será abordado no mesmo. Por exemplo, neste
+capítulo são apresentados todos os estilos utilizados no modelo do TCC,  bem
+como os dados que foram utilizados para formatação dos mesmos. Perceba que, para
+cada tipo de página do relatório (Figura 2), há um conjunto de estilos que são
 aplicados a essa página. As páginas dos elementos pré-textuais são numeradas com
 algarismos romanos minúsculos, enquanto as demais são numeradas com algarismos
 arábicos. A partir do capítulo ``1 Introdução'' a contagem dos números de página
 volta a 1 (um). Cuidado, pois não é necessário deixar linhas em branco entre os
 capítulos, sub-capítulos e o texto.
 
-\begin{figure}[hbtp]
-\begin{center}
-\includegraphics[width=100mm]{images/logotipo.jpg}
-\caption{http://publicdomainreview.org/2012/07/09/arabic-machine-manuscript}
-\end{center}
-\end{figure}
-
 \section{Apresentação}
-Este texto apresenta o ``Modelo do Relatório do TCC'' e contém as
-informações para a escrita do mesmo, cuja versão final deverá estar estruturada
-da
-seguinte forma:
-a) Elementos Externos
-Deve-se iniciar a numeração com algarismos romanos. Os números irão
-aparecer a partir do termo de aprovação.
-Capa
-b) Elementos Pré-Textuais
-Os itens marcados com (*) são opcionais, isto é, só serão adicionados se o
-autor desejar.
-Folha de rosto
-Termo de aprovação
-Dedicatória (*)
-Agradecimentos (*)
-Epígrafe (*)
-Sumário
-Listas
-Resumo
-Abstract
-
 \section{Elementos Textuais}
 \subsection{Introdução}
 \subsection{Desenvolvimento}
@@ -391,5 +356,10 @@ alter & solus & fero & uoluptas & populor & postea \\ \hline
 \end{tabular}
 \end{center}
 \end{table}
+
+\sigla{DDS}{- Descrição da Sigla}
+\sigla{DDS}{- Descrição da Sigla}
+\sigla{DDS}{- Descrição da Sigla}
+\sigla{DDS}{- jkjk}
 
 \end{document}
