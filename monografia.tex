@@ -65,14 +65,14 @@
       \leavevmode \small\bfseries\fontsize{3.7mm}{2mm}\selectfont
       \advance\leftskip\@tempdima
       \hskip -\leftskip
-      #1\nobreak\dotfill \nobreak%
+      \MakeUppercase{#1}\nobreak\dotfill \nobreak%
       \ifthenelse{\boolean{ABNTpagenumstyle}}
          {%
          \hb@xt@\@pnumwidth{\hss
             \ifthenelse{\not\equal{#2}{}}{{\normalfont p.\thinspace#2}}{}}\par
          }
          {%
-          \hb@xt@\@pnumwidth{\hss #2}\par
+          \hb@xt@\@pnumwidth{\hss \MakeUppercase{#2}}\par
          }
       \penalty\@highpenalty
     \endgroup
@@ -129,12 +129,30 @@
 \newcommand{\listadesiglas}{\pretextualchapter{LISTA DE SIGLAS}\@starttoc{lsg}}
 \newcommand{\sigla}[2]{{\addcontentsline{lsg}{sigla}{\numberline{#1}{#2}}}#1}
 \newcommand{\l@sigla}[2]{
-    \vspace{-0.75cm}
+    \vspace{-11mm}
     \leftskip 0em
     \parindent 0em
-    \@tempdima 5em
+    \@tempdima 6.5em
     \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
     {\normalfont #1}\hfil\nobreak\par}
+
+% http://dmarcos.googlecode.com/svn/dissertacao.mpcomp/trunk/modelo/tex/uece.sty
+\def\@makechapterhead#1{%
+  {%
+  \thispagestyle{empty}%
+  \normalsize\bfseries%
+  \espaco{simples}%
+  \noindent%
+  \parbox[b]{\textwidth}{%
+    \vspace{1.5cm}
+    \parbox[t]{2.5ex}{\thechapter}%
+    \parbox[t]{\textwidth-7ex-1ex}%
+      {\interlinepenalty\@M\raggedright%
+      {\MakeUppercase{#1}}}%
+    \vspace*{2.4cm}%espaco entre o nome do capitulo e subsection
+    }\\[2pt]%
+  }%
+}
 
 % Define o tipo de numeração das páginas
 \renewcommand{\chaptertitlepagestyle}{plain}
@@ -169,7 +187,7 @@
 \renewcommand{\contentsname}{\vspace*{.6cm}
   \normalsize{\textbf{SUMÁRIO}}\vspace{1.4cm}}
 
-\renewcommand{\thepage}{\Roman{page}}
+%\renewcommand{\thepage}{\Roman{page}}
 \sumario
 
 \addcontentsline{toc}{chapter}{LISTA DE ILUSTRAÇÕES}
@@ -183,7 +201,7 @@
 \addcontentsline{toc}{chapter}{ABSTRACT}
 \include{abstract}
 
-\chapter{INTRODUÇÃO}
+\chapter{introdução}
 \section{Contextualização}
 No texto da apresentação, aborde o tema do trabalho iniciando por uma
 discussão ampla do conteúdo, até tratar especificamente o que vai ser
@@ -210,6 +228,11 @@ problema, mas sim, objetivo''.
 \subsection{Objetivos específicos}
 \section{Procedimentos Metodológicos}
 \section{Estrutura do Trabalho}
+
+\sigla{DDS}{- Descrição da Sigla}
+\sigla{DDS}{- Descrição da Sigla}
+\sigla{DDS}{- Descrição da Sigla}
+\sigla{DDS}{- jkjk}
 
 \chapter{NORMAS PARA DIGITAÇÃO DO TRABALHO DE CONCLUSÃO DE CURSO}
 
