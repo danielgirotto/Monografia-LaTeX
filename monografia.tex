@@ -50,6 +50,8 @@
 % Altera o espaçamento entre dots
 \renewcommand\@dotsep{0.5}
 
+\renewcommand\@dotsep{2}
+
 % Altera forma de montagem do TOC
 \renewcommand\l@chapter[2]{
   \ifnum \c@tocdepth >\m@ne
@@ -145,7 +147,7 @@
   \noindent%
   \leading{8mm}
   \parbox[b]{\textwidth}{%
-    \vspace{1.5cm}
+    \vspace{1.8cm}
     \parbox[t]{2.5ex}{\thechapter}%
     \parbox[t]{\textwidth-7ex-1ex}%
       {\interlinepenalty\@M\raggedright%
@@ -194,7 +196,7 @@
 \include{epigrafe}
 
 % Altera o título do TOC
-\renewcommand{\contentsname}{\vspace*{.6cm}
+\renewcommand{\contentsname}{\vspace*{.8cm}
   \normalsize{\textbf{SUMÁRIO}}\vspace{1.4cm}}
 
 \sumario
