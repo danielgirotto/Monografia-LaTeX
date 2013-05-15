@@ -15,43 +15,42 @@
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.   %
 
 % ------------------------------------------------------------ %
-% Monografia
+% Monografia                                                   %
 % ------------------------------------------------------------ %
 \documentclass[pnumromarab, normaltoc, a4paper, 12pt]{abnt}
 
 \usepackage{url}
-\usepackage{tocloft}
 \usepackage{leading}
 \usepackage{lmodern}
-\usepackage{textcomp}
-\usepackage{multicol}
 \usepackage{graphicx}
 \usepackage{abnt-alf}
 \usepackage{varwidth}
-\usepackage{remreset}
 \usepackage[T1]{fontenc}
-\usepackage[normalem]{ulem}
-\usepackage[svgnames]{xcolor}
 \usepackage[latin1]{inputenc}
-\usepackage[polutonikogreek,brazil]{babel}
+\usepackage[brazil]{babel}
 
-\makeatletter
-\@removefromreset{footnote}{chapter}
-\makeatother
-
-% Para que ele entenda o @
+% ------------------------------------------------------------ %
+% Para que ele entenda o @                                     %
+% ------------------------------------------------------------ %
 \makeatletter
 
-% Altera o tamanho das fontes dos capítulos e dos apêndices
+% ------------------------------------------------------------ %
+% Altera o tamanho das fontes dos capítulos e dos apêndices    %
+% ------------------------------------------------------------ %
 \renewcommand{\ABNTchapterfont}{\bfseries\normalsize}
 \renewcommand{\ABNTchaptersize}{\Large}
 \renewcommand{\ABNTanapsize}{\Large}
 
-% Altera o espaçamento entre dots
+% ------------------------------------------------------------ %
+% Altera o espaçamento entre dots                              %
+% ------------------------------------------------------------ %
 \renewcommand\@dotsep{0.5}
 
-% Altera forma de montagem do TOC
+% ------------------------------------------------------------ %
+% Altera forma de montagem do TableOfContents                  %
+% ------------------------------------------------------------ %
 \renewcommand\l@chapter[2]{
+  \thispagestyle{empty}
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
     \vskip 0.5em \@plus\p@
@@ -62,18 +61,11 @@
         {}
       \parindent \z@ \rightskip \@pnumwidth
       \parfillskip -\@pnumwidth
-      \leavevmode \small\bfseries\fontsize{3.7mm}{2mm}\selectfont
+      \leavevmode \bfseries\fontsize{3.7mm}{2mm}\selectfont
       \advance\leftskip\@tempdima
       \hskip -\leftskip
       \MakeUppercase{#1}\nobreak\dotfill \nobreak%
-      \ifthenelse{\boolean{ABNTpagenumstyle}}
-         {%
-         \hb@xt@\@pnumwidth{\hss
-            \ifthenelse{\not\equal{#2}{}}{{\normalfont p.\thinspace#2}}{}}\par
-         }
-         {%
-          \hb@xt@\@pnumwidth{\hss \MakeUppercase{#2}}\par
-         }
+      \hb@xt@\@pnumwidth{\hss \MakeUppercase{#2}}\par
       \penalty\@highpenalty
     \endgroup
   \fi
@@ -84,59 +76,17 @@
 
 \let\stdl@section\l@section
 \renewcommand*{\l@section}[2]{%
-  \leading{1mm}
-  \vspace{-1.48mm}
-  \stdl@section{\textcolor{black}{#1}}{\textcolor{black}{#2}}}
+  \leading{1mm}\vspace{-1.48mm}
+  \stdl@section{#1}{#2}}
 
 \let\stdl@subsection\l@subsection
 \renewcommand*{\l@subsection}[2]{%
-  \leading{1mm}
-  \vspace{-1.48mm}
-  \stdl@subsection{\em\textcolor{black}{#1}}{\textcolor{black}{#2}}
-}
+  \leading{1mm}\vspace{-1.48mm}
+  \stdl@subsection{\em #1}{#2}}
 
-% Cria um comando auxiliar para montagem da lista de figuras
-\newcommand{\figfillnum}[1]{%
-  {\hspace{1em}\normalfont\dotfill}\nobreak
-  \hb@xt@\@pnumwidth{\hfil\normalfont #1}{}\par}
-
-% Cria um comando auxiliar para montagem da lista de tabelas
-\newcommand{\tabfillnum}[1]{%
-    {\hspace{1em}\normalfont\dotfill}\nobreak
-    \hb@xt@\@pnumwidth{\hfil\normalfont #1}{}\par}
-
-% Altera a forma de montagem da lista de figuras
-\renewcommand*{\l@figure}[2]{
-    \leftskip 3.1em
-    \rightskip 1.6em
-    \parfillskip -\rightskip
-    \parindent 0em
-    \@tempdima 2.0em
-    \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-    {FIGURA \normalfont #1}\nobreak \figfillnum{#2}}
-
-% Altera a forma de montagem de lista de tabelas
-\renewcommand*{\l@table}[2]{
-    \leftskip 3.4em
-    \rightskip 1.6em
-    \parfillskip -\rightskip
-    \parindent 0em
-    \@tempdima 2.0em
-    \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-    {Tabela \normalfont #1}\nobreak \tabfillnum{#2}}
-
-% Define o comando que monta a lista de siglas
-\newcommand{\listadesiglas}{\pretextualchapter{LISTA DE SIGLAS}\@starttoc{lsg}}
-\newcommand{\sigla}[2]{{\addcontentsline{lsg}{sigla}{\numberline{#1}{#2}}}#1}
-\newcommand{\l@sigla}[2]{
-    \vspace{-11mm}
-    \leftskip 0em
-    \parindent 0em
-    \@tempdima 6.5em
-    \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-    {\normalfont #1}\hfil\nobreak\par}
-
-% http://dmarcos.googlecode.com/svn/dissertacao.mpcomp/trunk/modelo/tex/uece.sty
+% ------------------------------------------------------------ %
+% Altera forma de montagem dos Capítulos                       %
+% ------------------------------------------------------------ %
 \def\@makechapterhead#1{%
   {%
   \thispagestyle{empty}%
@@ -155,33 +105,46 @@
   }%
 }
 
-%http://www.umiacs.umd.edu/~lsd/iccv/latex-macros.html
+% ------------------------------------------------------------ %
+% Altera forma de montagem das Seções                          %
+% ------------------------------------------------------------ %
 \def\section{\@startsection {section}{1}%
   {\z@}{1.0ex plus 1ex minus .2ex \leading{7.5mm}}%
   {2ex plus .2ex}{\normalsize\bf}}
 
+% ------------------------------------------------------------ %
+% Altera forma de montagem das Subseções                       %
+% ------------------------------------------------------------ %
 \def\subsection{\@startsection {subsection}{2}{\z@}{4mm plus 1ex}
   {4mm plus 4mm}{\normalsize\em}}
 
-% Define o tipo de numeração das páginas
-\renewcommand{\chaptertitlepagestyle}{plain}
+% ------------------------------------------------------------ %
+% Define o comando que monta a lista de siglas                 %
+% ------------------------------------------------------------ %
+\newcommand{\listadesiglas}{%
+  %\setlength{\topmargin}{2.5cm -1in-\voffset}
+  \pretextualchapter{%
+  \MakeUppercase{Lista de Siglas}}\@starttoc{lsg}}
+\newcommand{\sigla}[2]{{\addcontentsline{lsg}{sigla}{%
+  \numberline{#1}- {#2}}}#1}
+\newcommand{\l@sigla}[2]{
+    \thispagestyle{empty}
+    \vspace{-11mm}\leftskip 0em
+    \parindent 0em\@tempdima 6.5em
+    \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+    {\normalfont #1}\hfil\nobreak\par}
 
-% Altera a posição da numeração de páginas dos elementos textuais
-\renewcommand{\ABNTchaptermark}[1]{
-    \ifthenelse{\boolean{ABNTNextOutOfTOC}}
-        {\markboth{\ABNTnextmark}{\ABNTnextmark}}
-        {\chaptermark{#1}
-        \pagestyle{\chaptertitlepagestyle}}}
-
-% Redefine o tipo de numeração das páginas
+% ------------------------------------------------------------ %
+% Redefine o tipo de numeração das páginas                     %
+% ------------------------------------------------------------ %
 \renewcommand{\ABNTBeginOfTextualPart}{
     \renewcommand{\chaptertitlepagestyle}{plainheader}
     \renewcommand{\thepage}{\arabic{page}}
     \setcounter{page}{1}}
 
-\makeatother
-
-% Altera o tamanho do parágrafo
+% ------------------------------------------------------------ %
+% Altera o tamanho do parágrafo                                %
+% ------------------------------------------------------------ %
 \setlength{\parindent}{1.5cm}
 
 \begin{document}
@@ -192,14 +155,16 @@
 \include{agradecimento}
 \include{epigrafe}
 
-% Altera o título do TOC
-\renewcommand{\contentsname}{\vspace*{.8cm}
-  \normalsize{\textbf{SUMÁRIO}}\vspace{1.4cm}}
+% ------------------------------------------------------------ %
+% Altera o título do Sumário                                   %
+% ------------------------------------------------------------ %
+\renewcommand{\contentsname}%
+  {\vspace*{.8cm}
+  \normalsize{\bfseries\MakeUppercase{sumário}}%
+  \vspace{1.4cm}}
 
 \sumario
-
 \addcontentsline{toc}{chapter}{LISTA DE ILUSTRAÇÕES}
-%\listoffigures
 
 \listadesiglas
 
@@ -357,9 +322,9 @@ alter & solus & fero & uoluptas & populor & postea \\ \hline
 \end{center}
 \end{table}
 
-\sigla{DDS}{- Descrição da Sigla}
-\sigla{DDS}{- Descrição da Sigla}
-\sigla{DDS}{- Descrição da Sigla}
-\sigla{DDS}{- jkjk}
+\sigla{DDS}{Descrição da Sigla}
+\sigla{DDS}{Descrição da Sigla}
+\sigla{DDS}{Descrição da Sigla}
+\sigla{DDS}{jkjk}
 
 \end{document}
