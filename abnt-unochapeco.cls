@@ -2012,6 +2012,46 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
   {4mm plus 4mm}{\normalsize\em}}
 
 % ------------------------------------------------------------ %
+% Altera forma de montagem das Lista de Figuras                %
+% ------------------------------------------------------------ %
+\renewcommand{\listoffigures}{%
+  \ifthenelse{\boolean{@twocolumn}}%
+    {\setboolean{ABNTrestorecol}{true}\onecolumn}%
+    {\setboolean{ABNTrestorecol}{false}}%
+
+\ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{listoffigures.}}
+{}
+  \pretextualchapter{%
+    \vspace*{1cm}
+    \MakeUppercase{\listfigurename}
+    \vspace*{1.3cm}}
+  \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
+  \thispagestyle{empty}
+  \@starttoc{lof}%
+  \ifthenelse{\boolean{ABNTrestorecol}}{\twocolumn}{}%
+}
+
+% ------------------------------------------------------------ %
+% Altera forma de montagem das Lista de Tabelas                %
+% ------------------------------------------------------------ %
+\renewcommand\listoftables{%
+  \ifthenelse{\boolean{@twocolumn}}%
+    {\setboolean{ABNTrestorecol}{true}\onecolumn}%
+    {\setboolean{ABNTrestorecol}{false}}%
+
+\ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{listoftables.}}{
+}
+  \pretextualchapter{%
+    \vspace*{1cm}
+    \MakeUppercase{\listtablename}
+    \vspace*{1.3cm}}
+  \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
+  \thispagestyle{empty}
+  \@starttoc{lot}%
+  \ifthenelse{\boolean{ABNTrestorecol}}{\twocolumn}{}%
+}
+
+% ------------------------------------------------------------ %
 % Define o comando que monta a lista de siglas                 %
 % ------------------------------------------------------------ %
 \newcommand{\listadesiglas}{%
