@@ -65,6 +65,8 @@
 \addcontentsline{toc}{chapter}{LISTA DE SIGLAS}
 \listadesiglas
 
+\listadefiguras
+
 % ------------------------------------------------------------ %
 % Altera o título do Sumário                                   %
 % ------------------------------------------------------------ %
@@ -83,11 +85,10 @@ Fazendo uma analogia a uma pirâmide invertida, o texto poderia ficar assim
 distribuído:
 
 \begin{figure}[hbtp]
-\begin{center}
-\caption{Estrutura do item Apresentação(Item 1.1)}
-\includegraphics[width=150mm]{images/imagem1.jpeg}
-
-\end{center}
+  \begin{center}
+  \caption{Estrutura do item Apresentação(Item 1.1)}
+  \includegraphics[width=150mm]{images/imagem1.jpeg}
+  \end{center}
 \end{figure}
 
 \section{Delimitação do problema}
@@ -112,10 +113,13 @@ escolhido, ou seja, o principal objetivo do TCC é ...
 A partir do objetivo geral, são detalhados alguns objetivos específicos que irão
 delimitar mais ainda o tema abordado no TCC. Geralmente são colocados na forma
 de itens. É um detalhamento do objetivo geral.
-\\
-a) ... \\
-b) ...\\
-c) ...
+
+\begin{itemize}
+  \leading{5mm}
+  \item [] a) ...
+  \item [] b) ...
+  \item [] c) ...
+\end{itemize}
 
 \section{Procedimentos Metodológicos}
 Primeiramente, caracterize o teu trabalho relacionado ao tipo de pesquisa quanto
@@ -138,10 +142,11 @@ O segundo capítulo visa apresentar conceitos e trabalhos relacionados ao tema.
 Quanto a estrutura da revisão bibliográfica pode ser apresentada em um ou mais
 capítulos, dependerá do tema abordado. Caso optar por fazer mais de um capítulo
 de revisão, fica estabelecido no máximo 3 capítulos para revisão bibliográfica.
-\\
-2.1 - xxx\\
-2.2 - yyy
-
+\begin{itemize}
+  \leading{5mm}
+  \item [] 2.1 - xxx
+  \item [] 2.2 - yyy
+\end{itemize}
 No caso de capítulo único: a revisão bibliográfica deverá ser feita em
 subcapítulos por temáticas. Ex.: 2.1 - O ramo atacadista no oeste de SC. 2.2
 Tecnologias da Informação. Cada subcapítulo deverá ter as considerações finais,
@@ -160,7 +165,66 @@ volta a 1 (um). Cuidado, pois não é necessário deixar linhas em branco entre os
 capítulos, sub-capítulos e o texto.
 
 \section{Apresentação}
+Este texto apresenta o ``Modelo do Relatório do TCC'' e contém as informações
+para a escrita do mesmo, cuja versão final deverá estar estruturada da seguinte
+forma:
+
+\begin{itemize}
+  \leading{5mm}
+  \item [a)] \emph{Elementos Externos} \\ Deve-se iniciar a numeração com
+algarismos romanos. Os números irão aparecer
+a partir do termo de aprovação.
+  \begin{itemize}
+    \item [-] Capa
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+  \leading{5mm}
+  \item [b)] \emph{ Elementos Pré-Textuais} \\
+  Os itens marcados com (*) são opcionais, isto é, só serão adicionados se o
+  autor desejar.
+  \item [-] Folha de rosto
+  \item [-] Termo de aprovação
+  \item [-] Dedicatória(*)
+  \item [-] Agradecimentos(*)
+  \item [-] Epígrafe(*)
+  \item [-] Sumário
+  \item [-] Listas
+  \item [-] Resumo
+  \item [-] Abstract
+\end{itemize}
+
+\newpage
+
+\begin{figure}[!h]
+  \begin{center}
+  \caption{Estrutura do relatório final do TCC}
+  \includegraphics[width=160mm]{images/imagem2.jpeg}
+  \end{center}
+\end{figure}
+
+\begin{itemize}
+  \leading{5mm}
+  \item [c)] \emph{Elementos Textuais} \\
+  Aqui é o início do texto do relatório, a numeração é feita com algarismos
+  arábicos, a partir do número 1.
+
+  \begin{itemize}
+    \item [-] Texto
+  \end{itemize}
+
+  \item [d)] \emph{Elementos Pós-Textuais} \\
+  Os itens marcados com (*) são opcionais, isto é, só serão adicionados se o
+  autor desejar.
+  \item [-] Referências
+  \item [-] Bibliografia recomendada(*)
+  \item [-] Apêndices
+  \item [-] Anexos
+\end{itemize}
+
 \section{Elementos Textuais}
+
 \subsection{Introdução}
 \subsection{Desenvolvimento}
 \subsection{Conclusões e trabalhos futuros}
