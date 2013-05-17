@@ -1,20 +1,12 @@
-%$Id: abnt.cls,v 1.27.2.1 2004/11/02 15:04:29 gweber Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% ABNT.CLS
+% ABNT-Unochapeco.CLS
 %
 %
 %   Licence: LPPL (LaTeX Project Public License)
 %     You can change this file in the terms of LPPL
 %     (http://www.latex-project.org/lppl.html)
 % 
-%   Licenca: LPPL (LaTeX Project Public License)
-%     Esta licenca diz basicamente que se voce editar o codigo desta
-%     classe, mesmo localmente (no seu micro), voce DEVE RENOMEAR o arquivo
-%     da classe!! Como sempre, nao eh dada nenhuma garantia.
-%     Para o texto completo da licenca, favor seguir o endereco
-%        http://www.latex-project.org/lppl.html
-%
 %   Classe para confeccao de monografias, dissertacoes ou teses
 %   de acordo com as normas da Associacao Brasileira de Normas
 %   Tecnicas (ABNT). Esta classe, junto com o estilo bibTeX, foram
@@ -1909,6 +1901,266 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
  }%
  {}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                       %%
+%%                          Modelo Unochapecó                            %%
+%%                                                                       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Monografia-LaTeX (Unochapecó)                                           %
+% Copyright (C) 2013  Daniel Girotto                                      %
+%                                                                         %
+% This program is free software: you can redistribute it and/or modify    %
+% it under the terms of the GNU General Public License as published by    %
+% the Free Software Foundation, either version 3 of the License, or       %
+% (at your option) any later version.                                     %
+%                                                                         %
+% This program is distributed in the hope that it will be useful,         %
+% but WITHOUT ANY WARRANTY; without even the implied warranty of          %
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           %
+% GNU General Public License for more details.                            %
+%                                                                         %
+% You should have received a copy of the GNU General Public License       %
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.   %
+
+% ------------------------------------------------------------ %
+% Para que ele entenda o @                                     %
+% ------------------------------------------------------------ %
+\makeatletter
+
+% ------------------------------------------------------------ %
+% Altera o tamanho das fontes dos capítulos e dos apêndices    %
+% ------------------------------------------------------------ %
+\renewcommand{\ABNTchapterfont}{\bfseries\normalsize}
+\renewcommand{\ABNTchaptersize}{\Large}
+\renewcommand{\ABNTanapsize}{\Large}
+
+% ------------------------------------------------------------ %
+% Altera o espaçamento entre dots                              %
+% ------------------------------------------------------------ %
+\renewcommand\@dotsep{0.5}
+
+% ------------------------------------------------------------ %
+% Altera forma de montagem do TableOfContents                  %
+% ------------------------------------------------------------ %
+\renewcommand\l@chapter[2]{
+  \thispagestyle{empty}
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 0.5em \@plus\p@
+    \setlength\@tempdima{.8em}%
+    \begingroup
+      \ifthenelse{\boolean{ABNTpagenumstyle}}
+        {\renewcommand{\@pnumwidth}{1.7em}}
+        {}
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries\fontsize{3.7mm}{2mm}\selectfont
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      \MakeUppercase{#1}\nobreak\dotfill \nobreak%
+      \hb@xt@\@pnumwidth{\hss \MakeUppercase{#2}}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi
+}
+
+\renewcommand*\l@section{\@dottedtocline{1}{0em}{1.6em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{0em}{2.4em}}
+
+\let\stdl@section\l@section
+\renewcommand*{\l@section}[2]{%
+  \leading{1mm}\vspace{-1.48mm}
+  \stdl@section{#1}{#2}}
+
+\let\stdl@subsection\l@subsection
+\renewcommand*{\l@subsection}[2]{%
+  \leading{1mm}\vspace{-1.48mm}
+  \stdl@subsection{\em #1}{#2}}
+
+% ------------------------------------------------------------ %
+% Altera forma de montagem dos Capítulos                       %
+% ------------------------------------------------------------ %
+\def\@makechapterhead#1{%
+  {%
+  \thispagestyle{empty}%
+  \normalsize\bfseries%
+  \espaco{simples}%
+  \noindent%
+  \leading{8mm}
+  \parbox[b]{\textwidth}{%
+    \vspace{1.8cm}
+    \parbox[t]{2.5ex}{\thechapter}%
+    \parbox[t]{\textwidth-7ex-1ex}%
+      {\interlinepenalty\@M\raggedright%
+       \MakeUppercase{#1}}%
+    \vspace*{2.1cm}
+    }\\[2pt]%
+  }%
+}
+
+% ------------------------------------------------------------ %
+% Altera forma de montagem das Seções                          %
+% ------------------------------------------------------------ %
+\def\section{\@startsection {section}{1}%
+  {\z@}{1.0ex plus 1ex minus .2ex \leading{7.5mm}}%
+  {2ex plus .2ex}{\normalsize\bf}}
+
+% ------------------------------------------------------------ %
+% Altera forma de montagem das Subseções                       %
+% ------------------------------------------------------------ %
+\def\subsection{\@startsection {subsection}{2}{\z@}{4mm plus 1ex}
+  {4mm plus 4mm}{\normalsize\em}}
+
+% ------------------------------------------------------------ %
+% Define o comando que monta a lista de siglas                 %
+% ------------------------------------------------------------ %
+\newcommand{\listadesiglas}{%
+  %\setlength{\topmargin}{2.5cm -1in-\voffset}
+  \pretextualchapter{%
+  \MakeUppercase{Lista de Siglas}}\@starttoc{lsg}}
+\newcommand{\sigla}[2]{{\addcontentsline{lsg}{sigla}{%
+  \numberline{#1}- {#2}}}#1}
+\newcommand{\l@sigla}[2]{
+    \thispagestyle{empty}
+    \vspace{-11mm}\leftskip 0em
+    \parindent 0em\@tempdima 6.5em
+    \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+    {\normalfont #1}\hfil\nobreak\par}
+
+% ------------------------------------------------------------ %
+% Redefine o tipo de numeração das páginas                     %
+% ------------------------------------------------------------ %
+\renewcommand{\ABNTBeginOfTextualPart}{
+    \renewcommand{\chaptertitlepagestyle}{plainheader}
+    \renewcommand{\thepage}{\arabic{page}}
+    \setcounter{page}{1}}
+
+% ------------------------------------------------------------ %
+% Altera o tamanho do parágrafo                                %
+% ------------------------------------------------------------ %
+\setlength{\parindent}{1.5cm}
+
+% ------------------------------------------------------------ %
+% Capa                                                         %
+% ------------------------------------------------------------ %
+\renewcommand{\capa}{%
+  \thispagestyle{empty}
+  \begin{center}
+    \includegraphics[scale=1.5]{images/image1.jpeg}\\
+
+    \leading{5mm}
+    \textbf{\MakeUppercase{\instituicao}}\\
+    \textbf{\MakeUppercase{\area}}\\
+    \textbf{\MakeUppercase{\curso}}\\
+    \textbf{(\MakeUppercase{\grau})}\\
+
+    \vspace*{5.2cm}
+    \textbf{\MakeUppercase{\titulo}}
+
+    \vspace{5.8cm}
+    \textbf{\MakeUppercase{\autor}}
+
+    \vspace{5.5cm}
+    \normalfont{\textbf{\MakeUppercase{\local, \data}}}
+  \end{center}
+}
+
+% ------------------------------------------------------------ %
+% Folha de rosto                                               %
+% ------------------------------------------------------------ %
+\renewcommand{\folhaderosto}{%
+  \newpage
+  \thispagestyle{empty}
+  \setlength{\topmargin}{1.75cm -1in-\voffset}
+
+  \begin{center}
+    \leading{5mm}
+    \textbf{\MakeUppercase{\instituicao}}\\
+    \textbf{\MakeUppercase{\area}}\\
+    \textbf{\MakeUppercase{curso de \curso}}\\
+    \textbf{(\MakeUppercase{\grau})}\\
+  \end{center}
+
+  \vspace{3.8cm}
+  \begin{center}
+    \textbf{\MakeUppercase{\titulo}}
+  \end{center}
+
+  \vspace{3cm}
+  \hspace{0.4\textwidth}
+  \begin{varwidth}{0.5\textwidth}
+  \leading{5mm}
+    \textbf{\comentario}\par
+  \end{varwidth}
+
+  \vspace{.8cm}
+  \begin{center}
+    \textbf{\MakeUppercase{\autor}}
+  \end{center}
+
+  \vspace{0.4cm}
+  \hspace{.4\textwidth}
+  \begin{minipage}{.5\textwidth}
+    \leading{5mm}
+    Orientador(a): \orientador\par
+  \end{minipage}
+
+  \begin{center}
+    \vspace{4.7cm}
+    \normalfont{\textbf{\MakeUppercase{\local, \data}}}
+  \end{center}
+}
+
+% ------------------------------------------------------------ %
+% Folha de aprovação                                           %
+% ------------------------------------------------------------ %
+\renewcommand{\folhadeaprovacao}{
+  \setlength{\topmargin}{1.75cm -1in-\voffset}
+  \begin{center}
+    \textbf{\MakeUppercase{\titulo}}
+
+    \vspace*{0.5cm}
+    \textbf{\MakeUppercase{\autor}}
+
+    \vspace*{0.5cm}
+    \leading{6mm}
+    \textbf{ESTE RELATÓRIO, DO TRABALHO DE CONCLUSÃO DE CURSO, FOI JULGADO
+    ADEQUADO PARA OBTENÇÃO DO TÍTULO DE:}
+
+    \vspace{1.5cm}
+    \textbf{\MakeUppercase{\grautitulo \ em \curso}}
+
+    \vspace{-1cm}
+    \hspace*{-1.5cm}
+    \assinatura*{\orientador \\ \textbf{Orientador}}
+    \assinatura*{\coorientador \\ \textbf{Co-Orientador}}
+  \end{center}
+
+  \vfil
+  \begin{flushleft}
+    \textbf{BANCA EXAMINADORA:}
+  \end{flushleft}
+
+  \vspace{-1.5cm}
+  \hspace*{-1.5cm}
+  \assinatura*{\membrobancaa \\ Instituição}
+  \assinatura*{\membrobancab \\ Instituição}
+
+  \vspace{-0.5cm}
+  \hspace*{-1.5cm}
+  \assinatura*{\supervisortcc \\ \textbf{ Supervisor de TCC}}
+  \assinatura*{\coordenador \\ \textbf{Coordenador de Curso}}
+
+  \begin{center}
+    \vspace{3.6cm}
+    \normalfont{\textbf{\local, } \datadefesa}
+  \end{center}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                       %%
+%%                          Modelo Unochapecó                            %%
+%%                               FIM                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%% auto bold math (try follow bold face in text)

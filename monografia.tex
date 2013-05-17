@@ -29,131 +29,41 @@
 \usepackage[latin1]{inputenc}
 \usepackage[brazil]{babel}
 
-% ------------------------------------------------------------ %
-% Para que ele entenda o @                                     %
-% ------------------------------------------------------------ %
-\makeatletter
-
-% ------------------------------------------------------------ %
-% Altera o tamanho das fontes dos capítulos e dos apêndices    %
-% ------------------------------------------------------------ %
-\renewcommand{\ABNTchapterfont}{\bfseries\normalsize}
-\renewcommand{\ABNTchaptersize}{\Large}
-\renewcommand{\ABNTanapsize}{\Large}
-
-% ------------------------------------------------------------ %
-% Altera o espaçamento entre dots                              %
-% ------------------------------------------------------------ %
-\renewcommand\@dotsep{0.5}
-
-% ------------------------------------------------------------ %
-% Altera forma de montagem do TableOfContents                  %
-% ------------------------------------------------------------ %
-\renewcommand\l@chapter[2]{
-  \thispagestyle{empty}
-  \ifnum \c@tocdepth >\m@ne
-    \addpenalty{-\@highpenalty}%
-    \vskip 0.5em \@plus\p@
-    \setlength\@tempdima{.8em}%
-    \begingroup
-      \ifthenelse{\boolean{ABNTpagenumstyle}}
-        {\renewcommand{\@pnumwidth}{1.7em}}
-        {}
-      \parindent \z@ \rightskip \@pnumwidth
-      \parfillskip -\@pnumwidth
-      \leavevmode \bfseries\fontsize{3.7mm}{2mm}\selectfont
-      \advance\leftskip\@tempdima
-      \hskip -\leftskip
-      \MakeUppercase{#1}\nobreak\dotfill \nobreak%
-      \hb@xt@\@pnumwidth{\hss \MakeUppercase{#2}}\par
-      \penalty\@highpenalty
-    \endgroup
-  \fi
-}
-
-\renewcommand*\l@section{\@dottedtocline{1}{0em}{1.6em}}
-\renewcommand*\l@subsection{\@dottedtocline{2}{0em}{2.4em}}
-
-\let\stdl@section\l@section
-\renewcommand*{\l@section}[2]{%
-  \leading{1mm}\vspace{-1.48mm}
-  \stdl@section{#1}{#2}}
-
-\let\stdl@subsection\l@subsection
-\renewcommand*{\l@subsection}[2]{%
-  \leading{1mm}\vspace{-1.48mm}
-  \stdl@subsection{\em #1}{#2}}
-
-% ------------------------------------------------------------ %
-% Altera forma de montagem dos Capítulos                       %
-% ------------------------------------------------------------ %
-\def\@makechapterhead#1{%
-  {%
-  \thispagestyle{empty}%
-  \normalsize\bfseries%
-  \espaco{simples}%
-  \noindent%
-  \leading{8mm}
-  \parbox[b]{\textwidth}{%
-    \vspace{1.8cm}
-    \parbox[t]{2.5ex}{\thechapter}%
-    \parbox[t]{\textwidth-7ex-1ex}%
-      {\interlinepenalty\@M\raggedright%
-       \MakeUppercase{#1}}%
-    \vspace*{2.1cm}
-    }\\[2pt]%
-  }%
-}
-
-% ------------------------------------------------------------ %
-% Altera forma de montagem das Seções                          %
-% ------------------------------------------------------------ %
-\def\section{\@startsection {section}{1}%
-  {\z@}{1.0ex plus 1ex minus .2ex \leading{7.5mm}}%
-  {2ex plus .2ex}{\normalsize\bf}}
-
-% ------------------------------------------------------------ %
-% Altera forma de montagem das Subseções                       %
-% ------------------------------------------------------------ %
-\def\subsection{\@startsection {subsection}{2}{\z@}{4mm plus 1ex}
-  {4mm plus 4mm}{\normalsize\em}}
-
-% ------------------------------------------------------------ %
-% Define o comando que monta a lista de siglas                 %
-% ------------------------------------------------------------ %
-\newcommand{\listadesiglas}{%
-  %\setlength{\topmargin}{2.5cm -1in-\voffset}
-  \pretextualchapter{%
-  \MakeUppercase{Lista de Siglas}}\@starttoc{lsg}}
-\newcommand{\sigla}[2]{{\addcontentsline{lsg}{sigla}{%
-  \numberline{#1}- {#2}}}#1}
-\newcommand{\l@sigla}[2]{
-    \thispagestyle{empty}
-    \vspace{-11mm}\leftskip 0em
-    \parindent 0em\@tempdima 6.5em
-    \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-    {\normalfont #1}\hfil\nobreak\par}
-
-% ------------------------------------------------------------ %
-% Redefine o tipo de numeração das páginas                     %
-% ------------------------------------------------------------ %
-\renewcommand{\ABNTBeginOfTextualPart}{
-    \renewcommand{\chaptertitlepagestyle}{plainheader}
-    \renewcommand{\thepage}{\arabic{page}}
-    \setcounter{page}{1}}
-
-% ------------------------------------------------------------ %
-% Altera o tamanho do parágrafo                                %
-% ------------------------------------------------------------ %
-\setlength{\parindent}{1.5cm}
-
 \begin{document}
 
-\include{capa}
-\include{folha_aprovacao}
+\newcommand{\area}{área de ciências exatas e ambientais}
+\newcommand{\curso}{ciência da computação}
+\newcommand{\grau}{bacharelado}
+\newcommand{\grautitulo}{bacharel}
+\newcommand{\supervisortcc}{Prof. Fulano da Silva, Esp.,MSc., Dr.}
+\newcommand{\coordenador}{Prof. Outro Fulano, Esp.,MSc., Dr.}
+\newcommand{\membrobancaa}{Prof. Fulano da Silva, Esp.,MSc., Dr.}
+\newcommand{\membrobancab}{Prof. Outro Fulano, Esp.,MSc., Dr.}
+\newcommand{\datadefesa}{Dia de Mês de Ano (data da defesa)}
+
+\renewcommand{\autor}{nome completo do aluno}
+\renewcommand{\instituicao}{universidade comunitária da região de chapecó}
+\renewcommand{\titulo}{título do trabalho de conclusão do curso}
+\renewcommand{\local}{Chapecó}
+\renewcommand{\data}{mês (extenso) de ano (4 dígitos)}
+\renewcommand{\comentario}{Relatório do Trabalho de Conclusão de Curso submetido
+  à Universidade \mbox{Comunitária} da Região de Chapecó para obtenção do título
+  de bacharelado no curso de Ciência da Computação.}
+\renewcommand{\orientador}{Prof(a). Nome do(a) orientador(a)}
+\renewcommand{\coorientador}{Prof(a). Nome do(a) co-orientador(a)}
+
+\capa
+\folhaderosto
+\folhadeaprovacao
+
 \include{dedicatoria}
 \include{agradecimento}
 \include{epigrafe}
+\include{resumo}
+\include{abstract}
+
+\addcontentsline{toc}{chapter}{LISTA DE SIGLAS}
+\listadesiglas
 
 % ------------------------------------------------------------ %
 % Altera o título do Sumário                                   %
@@ -164,15 +74,6 @@
   \vspace{1.4cm}}
 
 \sumario
-\addcontentsline{toc}{chapter}{LISTA DE ILUSTRAÇÕES}
-
-\listadesiglas
-
-\addcontentsline{toc}{chapter}{RESUMO}
-\include{resumo}
-
-\addcontentsline{toc}{chapter}{ABSTRACT}
-\include{abstract}
 
 \chapter{introdução}
 \section{Contextualização}
