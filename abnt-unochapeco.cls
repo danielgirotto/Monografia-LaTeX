@@ -2012,43 +2012,38 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
   {4mm plus 4mm}{\normalsize\em}}
 
 % ------------------------------------------------------------ %
+% Altera o nome das figuras e tabelas no lof e lot             %
+% ------------------------------------------------------------ %
+\usepackage{etoolbox}
+\patchcmd{\@caption}{%
+  \csname the#1\endcsname}%
+  {\bfseries\small%
+    \MakeUppercase{\csname fnum@#1\endcsname \ - }}{}{}
+\renewcommand*\l@figure{\@dottedtocline{1}{0em}{7.5em}}
+\let\l@table\l@figure
+
+% ------------------------------------------------------------ %
 % Altera forma de montagem das Lista de Figuras                %
 % ------------------------------------------------------------ %
 \renewcommand{\listoffigures}{%
-  \ifthenelse{\boolean{@twocolumn}}%
-    {\setboolean{ABNTrestorecol}{true}\onecolumn}%
-    {\setboolean{ABNTrestorecol}{false}}%
-
-\ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{listoffigures.}}
-{}
   \pretextualchapter{%
     \vspace*{1cm}
     \MakeUppercase{\listfigurename}
     \vspace*{1.3cm}}
-  \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
   \thispagestyle{empty}
   \@starttoc{lof}%
-  \ifthenelse{\boolean{ABNTrestorecol}}{\twocolumn}{}%
 }
 
 % ------------------------------------------------------------ %
 % Altera forma de montagem das Lista de Tabelas                %
 % ------------------------------------------------------------ %
 \renewcommand\listoftables{%
-  \ifthenelse{\boolean{@twocolumn}}%
-    {\setboolean{ABNTrestorecol}{true}\onecolumn}%
-    {\setboolean{ABNTrestorecol}{false}}%
-
-\ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{listoftables.}}{
-}
   \pretextualchapter{%
     \vspace*{1cm}
     \MakeUppercase{\listtablename}
     \vspace*{1.3cm}}
-  \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
   \thispagestyle{empty}
-  \@starttoc{lot}%
-  \ifthenelse{\boolean{ABNTrestorecol}}{\twocolumn}{}%
+  \@starttoc{lot}
 }
 
 % ------------------------------------------------------------ %
@@ -2203,7 +2198,8 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 \newcommand{\ABNTcaptionsep}{{\bfseries - }}
 \long\def\@makecaption#1#2{%
   \vskip\abovecaptionskip
-  \sbox\@tempboxa{{\bfseries\MakeUppercase{#1}} \ABNTcaptionsep #2}%
+  \sbox\@tempboxa{{\bfseries\small%
+  \MakeUppercase{#1}} \ABNTcaptionsep #2}%
 \global \@minipagefalse
   \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}
 \vskip\belowcaptionskip}
