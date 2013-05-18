@@ -2196,6 +2196,18 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
     \normalfont{\textbf{\local, } \datadefesa}
   \end{center}
 }
+
+% ------------------------------------------------------------ %
+% Altera a forma de apresentação dos Captions                  %
+% ------------------------------------------------------------ %
+\newcommand{\ABNTcaptionsep}{{\bfseries - }}
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\bfseries\MakeUppercase{#1}} \ABNTcaptionsep #2}%
+\global \@minipagefalse
+  \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}
+\vskip\belowcaptionskip}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                       %%
 %%                          Modelo Unochapecó                            %%
