@@ -2050,17 +2050,18 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 % Define o comando que monta a lista de siglas                 %
 % ------------------------------------------------------------ %
 \newcommand{\listadesiglas}{%
-  %\setlength{\topmargin}{2.5cm -1in-\voffset}
   \pretextualchapter{%
-  \MakeUppercase{Lista de Siglas}}\@starttoc{lsg}}
+  \vspace*{1cm}
+  \MakeUppercase{Lista de Siglas}
+  \vspace*{1.3cm}}\@starttoc{lsg}}
 \newcommand{\sigla}[2]{{\addcontentsline{lsg}{sigla}{%
   \numberline{#1}- {#2}}}#1}
 \newcommand{\l@sigla}[2]{
-    \thispagestyle{empty}
-    \vspace{-11mm}\leftskip 0em
-    \parindent 0em\@tempdima 6.5em
-    \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-    {\normalfont #1}\hfil\nobreak\par}
+  \thispagestyle{empty}
+  \parindent 0em\@tempdima 6.5em
+  \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+  \fontsize{12pt}{0pt}\selectfont
+  \vspace{-1.5mm} #1\hfil\nobreak\par}
 
 % ------------------------------------------------------------ %
 % Redefine o tipo de numeração das páginas                     %
