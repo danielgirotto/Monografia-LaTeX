@@ -20,48 +20,68 @@
 \documentclass[pnumromarab, normaltoc, a4paper, 12pt]{abnt}
 
 \usepackage{url}
+\usepackage{color}
 \usepackage{leading}
 \usepackage{lmodern}
 \usepackage{graphicx}
+\usepackage{listings}
+\usepackage{abnt-unochapeco}
 \usepackage[abnt-emphasize=bf]{abnt-alf}
 \usepackage{varwidth}
 \usepackage[T1]{fontenc}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
-\usepackage{abnt-unochapeco}
 
 \begin{document}
 
-\newcommand{\area}{�rea de ci�ncias exatas e ambientais}
-\newcommand{\curso}{ci�ncia da computa��o}
+\newcommand{\area}{área de ciências exatas e ambientais}
+\newcommand{\curso}{ciência da computação}
 \newcommand{\grau}{bacharelado}
 \newcommand{\grautitulo}{bacharel}
-\newcommand{\supervisortcc}{Prof. Fulano da Silva, Esp.,MSc., Dr.}
-\newcommand{\coordenador}{Prof. Outro Fulano, Esp.,MSc., Dr.}
-\newcommand{\membrobancaa}{Prof. Fulano da Silva, Esp.,MSc., Dr.}
-\newcommand{\membrobancab}{Prof. Outro Fulano, Esp.,MSc., Dr.}
-\newcommand{\datadefesa}{Dia de M�s de Ano (data da defesa)}
+\newcommand{\supervisortcc}{Prof. Sandro Silva de Oliveira, Me.}
+\newcommand{\coordenador}{Prof. Viviane Duarte Bonfim, Ma.}
+\newcommand{\membrobancaa}{Prof. Marcos Antonio Moretto, Esp.}
+\newcommand{\membrobancab}{Prof. Jean Carlos Hennrichs, Esp.}
+\newcommand{\datadefesa}{Dia de Julho de 2013}
+\newcommand{\textofolhaaprovacao}{ESTE RELATÓRIO, DO TRABALHO DE CONCLUSÃO
+  DE CURSO, FOI JULGADO ADEQUADO PARA OBTENÇÃO DO TÍTULO DE:}
 
-\renewcommand{\autor}{nome completo do aluno}
-\renewcommand{\instituicao}{universidade comunit�ria da regi�o de chapec�}
-\renewcommand{\titulo}{t�tulo do trabalho de conclus�o do curso}
-\renewcommand{\local}{Chapec�}
-\renewcommand{\data}{m�s (extenso) de ano (4 d�gitos)}
-\renewcommand{\comentario}{Relat�rio do Trabalho de Conclus�o de Curso submetido
-  � Universidade \mbox{Comunit�ria} da Regi�o de Chapec� para obten��o do t�tulo
-  de bacharelado no curso de Ci�ncia da Computa��o.}
-\renewcommand{\orientador}{Prof(a). Nome do(a) orientador(a)}
-\renewcommand{\coorientador}{Prof(a). Nome do(a) co-orientador(a)}
+\renewcommand{\autor}{Daniel Carlos Girotto}
+\renewcommand{\instituicao}{Universidade Comunitária da Região de Chapecó}
+\renewcommand{\titulo}{Aplicativo Android para o National Center for
+  Biotechnology Information}
+\renewcommand{\local}{Chapecó}
+\renewcommand{\data}{Julho de 2013}
+\renewcommand{\comentario}{Relatório do Trabalho de Conclusão de Curso submetido
+  à Universidade \mbox{Comunitária} da Região de Chapecó para obtenção do título
+  de bacharelado no curso de Ciência da Computação.}
+\renewcommand{\orientador}{Prof. Marcelo Cezar Pinto, Me.}
+\renewcommand{\coorientador}{\ }
 
 \capa
 \folhaderosto
 \folhadeaprovacao
 
-\include{pre_textual/dedicatoria}
-\include{pre_textual/agradecimento}
-\include{pre_textual/epigrafe}
-\include{pre_textual/resumo}
-\include{pre_textual/abstract}
+% \include{pre_textual/dedicatoria}
+% \include{pre_textual/agradecimento}
+% \include{pre_textual/epigrafe}
+
+\newcommand{\textoresumo}{É a apresentação concisa do texto, destacando seus
+  aspectos de  maior relevância.
+  É redigido em um único parágrafo, contendo entre 250 e 500 palavras. Usar
+  terceira pessoa do singular. Não usar citações bibliográficas. Ressaltar
+  objetivos, métodos, resultados e conclusões do trabalho.}
+\newcommand{\palavraschave}{entre três e cinco palavras-chave, separadas por
+ponto e  vírgula.}
+\resumo
+
+\newcommand{\textoabstract}{It is a brief presentation of the text in English,
+  where the most relevant aspects are underlined. It should be written in the
+  third person singular, in an only paragraph containing from 250 to 500 words.
+  You should not mention references. It is important to write the objectives,
+  method, results and the final remarks of the study.}
+\newcommand{\keywords}{from 3 to 5 keywords, separated by semicolon.}
+\abstract
 
 \addcontentsline{toc}{chapter}{LISTA DE SIGLAS}
 \listadesiglas
@@ -73,228 +93,15 @@
 \listoftables
 
 % ------------------------------------------------------------ %
-% Altera o t�tulo do Sum�rio                                   %
+% Altera o título do Sumário                                   %
 % ------------------------------------------------------------ %
 \renewcommand{\contentsname}%
   {\vspace*{.8cm}
-  \normalsize{\bfseries\MakeUppercase{sum�rio}}%
+  \normalsize{\bfseries\MakeUppercase{sumário}}%
   \vspace{1.4cm}}
 
 \sumario
 
-\chapter{introdu��o}
-\section{Contextualiza��o}
-No texto da apresenta��o, aborde o tema do trabalho iniciando por uma discuss�o
-ampla do conte�do, at� tratar especificamente o que vai ser desenvolvido.
-Fazendo uma analogia a uma pir�mide invertida, o texto poderia ficar assim
-distribu�do:
-
-\begin{figure}[hbtp]
-  \begin{center}
-  \caption{Estrutura do item Apresenta��o(Item 1.1)}
-  \includegraphics[width=150mm]{images/imagem1.jpeg}
-  \end{center}
-\end{figure}
-
-\section{Delimita��o do problema}
-Aqui voc� coloca o problema a ser trabalhado no TCC. Analise se o que voc� est�
-colocando n�o � um objetivo. Lembre-se, ``implementar alguma coisa n�o �
-problema, mas sim, objetivo''.
-
-\section{Justificativa}
-Aqui voc� vai dizer porqu� trabalhar o problema acima � importante para a �rea
-da computa��o ou para o futuro usu�rio.
-
-Procure embasar a justificativa com cita��es de autores que voc� esteja
-estudando.\\
-\\
-
-\section{Objetivos}
-\subsection{Objetivo geral}
-Geralmente � um �nico par�grafo que cont�m o grande objetivo de trabalhar o tema
-escolhido, ou seja, o principal objetivo do TCC � ...
-
-\subsection{Objetivos espec�ficos}
-A partir do objetivo geral, s�o detalhados alguns objetivos espec�ficos que ir�o
-delimitar mais ainda o tema abordado no TCC. Geralmente s�o colocados na forma
-de itens. � um detalhamento do objetivo geral.
-
-\begin{itemize}
-  \leading{5mm}
-  \item [] a) ...
-  \item [] b) ...
-  \item [] c) ...
-\end{itemize}
-
-\section{Procedimentos Metodol�gicos}
-Primeiramente, caracterize o teu trabalho relacionado ao tipo de pesquisa quanto
-aos objetivos.
-
-Ap�s, juntamente com o Orientador, voc� deve descrever detalhadamente como ser�o
-desenvolvidos os trabalhos do TCC. Procure pensar que voc� est� fazendo uma
-receita de bolo e quem quiser fazer um TCC igual ao seu, ou valid�-lo para ver
-se est� correto, dever� seguir detalhadamente esta receita.
-
-Descreva como cada etapa ser� desenvolvida no decorrer do trabalho, enriquecendo
-com detalhes espec�ficos de cada etapa.
-
-\section{Estrutura do Trabalho}
-Apresentar a estrutura do trabalho, ou seja, como ele est� estruturado em
-termos de cap�tulos a partir da revis�o bibliogr�fica.
-
-\chapter{NORMAS PARA DIGITA��O DO TRABALHO DE CONCLUS�O DE CURSO}
-O segundo cap�tulo visa apresentar conceitos e trabalhos relacionados ao tema.
-Quanto a estrutura da revis�o bibliogr�fica pode ser apresentada em um ou mais
-cap�tulos, depender� do tema abordado. Caso optar por fazer mais de um cap�tulo
-de revis�o, fica estabelecido no m�ximo 3 cap�tulos para revis�o bibliogr�fica.
-\begin{itemize}
-  \leading{5mm}
-  \item [] 2.1 - xxx
-  \item [] 2.2 - yyy
-\end{itemize}
-No caso de cap�tulo �nico: a revis�o bibliogr�fica dever� ser feita em
-subcap�tulos por tem�ticas. Ex.: 2.1 - O ramo atacadista no oeste de SC. 2.2
-Tecnologias da Informa��o. Cada subcap�tulo dever� ter as considera��es finais,
-estabelecendo uma sequ�ncia textual (contribui��es e coment�rios por parte do
-aluno).
-
-Em cada in�cio de cap�tulo, procure fazer um par�grafo de apresenta��o (de 6 a
-10 linhas) falando sobre o que ser� abordado no mesmo. Por exemplo, neste
-cap�tulo s�o apresentados todos os estilos utilizados no modelo do TCC,  bem
-como os dados que foram utilizados para formata��o dos mesmos. Perceba que, para
-cada tipo de p�gina do relat�rio (Figura 2), h� um conjunto de estilos que s�o
-aplicados a essa p�gina. As p�ginas dos elementos pr�-textuais s�o numeradas com
-algarismos romanos min�sculos, enquanto as demais s�o numeradas com algarismos
-ar�bicos. A partir do cap�tulo ``1 Introdu��o'' a contagem dos n�meros de p�gina
-volta a 1 (um). Cuidado, pois n�o � necess�rio deixar linhas em branco entre os
-cap�tulos, sub-cap�tulos e o texto.
-
-\section{Apresenta��o}
-Este texto apresenta o ``Modelo do Relat�rio do TCC'' e cont�m as informa��es
-para a escrita do mesmo, cuja vers�o final dever� estar estruturada da seguinte
-forma:
-
-\begin{itemize}
-  \leading{5mm}
-  \item [a)] \emph{Elementos Externos} \\ Deve-se iniciar a numera��o com
-algarismos romanos. Os n�meros ir�o aparecer
-a partir do termo de aprova��o.
-  \begin{itemize}
-    \item [-] Capa
-  \end{itemize}
-\end{itemize}
-
-\begin{itemize}
-  \leading{5mm}
-  \item [b)] \emph{ Elementos Pr�-Textuais} \\
-  Os itens marcados com (*) s�o opcionais, isto �, s� ser�o adicionados se o
-  autor desejar.
-  \item [-] Folha de rosto
-  \item [-] Termo de aprova��o
-  \item [-] Dedicat�ria(*)
-  \item [-] Agradecimentos(*)
-  \item [-] Ep�grafe(*)
-  \item [-] Sum�rio
-  \item [-] Listas
-  \item [-] Resumo
-  \item [-] Abstract
-\end{itemize}
-
-\newpage
-
-\begin{figure}[!h]
-  \begin{center}
-  \caption{Estrutura do relat�rio final do TCC}
-  \includegraphics[width=160mm]{images/imagem2.jpeg}
-  \end{center}
-\end{figure}
-
-\begin{itemize}
-  \leading{5mm}
-  \item [c)] \emph{Elementos Textuais} \\
-  Aqui � o in�cio do texto do relat�rio, a numera��o � feita com algarismos
-  ar�bicos, a partir do n�mero 1.
-
-  \begin{itemize}
-    \item [-] Texto
-  \end{itemize}
-
-  \item [d)] \emph{Elementos P�s-Textuais} \\
-  Os itens marcados com (*) s�o opcionais, isto �, s� ser�o adicionados se o
-  autor desejar.
-  \item [-] Refer�ncias
-  \item [-] Bibliografia recomendada(*)
-  \item [-] Ap�ndices
-  \item [-] Anexos
-\end{itemize}
-
-\section{Elementos Textuais}
-
-\subsection{Introdu��o}
-\subsection{Desenvolvimento}
-\subsection{Conclus�es e trabalhos futuros}
-\section{Elementos P�s-Textuais}
-\subsection{Refer�ncias bibliogr�ficas}
-\subsection{Bibliografia complementar}
-\subsection{Ap�ndices}
-\subsection{Anexos}
-\section{Elementos de apoio ao texto}
-\section{Editora��o}
-\subsection{Formata��o de estilos}
-\section{Conclus�o}
-\chapter{CAPITULO 3 - TESTE DE T�TULO COM NOME GRANDE TESTE DE T�TULO COM NOME
-GRANDE TESTE DE T�TULO COM NOME GRANDE}
-\section{Teste de t�tulo com nome grande Teste de t�tulo com nome grande Teste
-de com nome grande}
-\subsection{Teste de t�tulo com nome grande Teste de t�tulo com nome grande
-Teste de t�tulo com nome grande}
-\section{Conclus�o}
-\chapter{CAP�TULO 4}
-\section{Formatando Tabelas}
-\subsection{Sub-t�tulo aa}
-\section{Sub-T�tulo b}
-\section{Conclus�o}
-\chapter{CONCLUS�ES}
-\section{Considera��es Finais}
-\section{Trabalhos Futuros}
-
-\begin{table}[ht]
-\caption{Lemas mais usados por C�cero (cima pra baixo, esquerda pra direita)}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-dico & uerbum & quantus & oportet & lex & anima \\ \hline
-possum & populus & suis & auctoritas & modius & liber \\ \hline
-uideo & uita & ciuis & quaero & ars & exercitus \\ \hline
-homo & animus & suo & facilis & arbitror & reliquus \\ \hline
-facio & tuus & suus & prouincia & quin & praetor \\ \hline
-causa & scribo & sententia & studium & genus & honor \\ \hline
-habeo & multus & semper & loco & uirus & diligo \\ \hline
-uolo & lego & nullus & intellego & plus & bene \\ \hline
-iudex & consilium & ceterus & corpus & periculum & bellum \\ \hline
-tantus & ius & saepe & dignitas & optimus & sentio \\ \hline
-bonus & oratio & maior & pater & soleo & domus \\ \hline
-ratio & inquam & uir & dolor & scriba & sapio \\ \hline
-primus & dies & totus & scio & opus & rego \\ \hline
-publica & gener & pars & do & dica & diu \\ \hline
-maximus & uirtus & iudicium & ago & modus & imperium \\ \hline
-tempus & pono & ueneo & necesse & proficiscor & plures \\ \hline
-littera & itaque & pecunia & audio & mors & accipio \\ \hline
-nunc & deus & minor & umquam & spes & praesertim \\ \hline
-senatus & locus & debeo & fortuna & urbs & uno \\ \hline
-uis & ciuitas & numquam & ullus & pario & malis \\ \hline
-multa & consul & fors & omnino & duo & uoluntas \\ \hline
-natura & satis & summo & orator & gratia & amicus \\ \hline
-puto & nomen & animo & salus & memoria & moueo \\ \hline
-magnus & publico & potis & utor & credo & mens \\ \hline
-alter & solus & fero & uoluptas & populor & postea \\ \hline
-\end{tabular}
-\end{center}
-\end{table}
-
-\sigla{DDS}{Descri��o da Sigla}
-\sigla{DDS}{Descri��o da Sigla}
-\sigla{DDS}{Descri��o da Sigla}
-\sigla{DDS}{jkjk}
+\bibliography{referencias}
 
 \end{document}

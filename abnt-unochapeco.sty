@@ -36,7 +36,7 @@
 \renewcommand\@dotsep{0.5}
 
 % ------------------------------------------------------------ %
-% Altera forma de montagem do TableOfContents                  %
+% Altera forma de montagem do Sumário                          %
 % ------------------------------------------------------------ %
 \renewcommand\l@chapter[2]{
   \thispagestyle{empty}
@@ -256,8 +256,7 @@
 
     \vspace*{0.5cm}
     \leading{6mm}
-    \textbf{ESTE RELATÓRIO, DO TRABALHO DE CONCLUSÃO DE CURSO, FOI JULGADO
-    ADEQUADO PARA OBTENÇÃO DO TÍTULO DE:}
+    \textbf{\MakeUppercase{\textofolhaaprovacao}}
 
     \vspace{1.5cm}
     \textbf{\MakeUppercase{\grautitulo \ em \curso}}
@@ -275,8 +274,8 @@
 
   \vspace{-1.5cm}
   \hspace*{-1.5cm}
-  \assinatura*{\membrobancaa \\ Instituição}
-  \assinatura*{\membrobancab \\ Instituição}
+  \assinatura*{\membrobancaa \\ \instituicao}
+  \assinatura*{\membrobancab \\ \instituicao}
 
   \vspace{-0.5cm}
   \hspace*{-1.5cm}
@@ -288,6 +287,58 @@
     \normalfont{\textbf{\local, } \datadefesa}
   \end{center}
 }
+% ------------------------------------------------------------ %
+% Resumo                                                       %
+% ------------------------------------------------------------ %
+\renewcommand{\resumo}{%
+  \newpage
+  \thispagestyle{empty}
+  \begin{center}
+    \vspace*{.85cm}
+    \textbf{RESUMO}
+  \end{center}
+
+  \vspace{2.5cm}
+  \noindent
+  \leading{5.5mm}
+  \textoresumo
+  \vspace{1.3cm}
+
+  \noindent
+  \textbf{Palavras-chave:} \palavraschave
+}
+
+% ------------------------------------------------------------ %
+% Abstract                                                     %
+% ------------------------------------------------------------ %
+\renewcommand{\abstract}{%
+  \newpage
+  \thispagestyle{empty}
+  \begin{center}
+    \vspace*{.95cm}
+    \textbf{ABSTRACT}
+  \end{center}
+
+  \vspace{2.5cm}
+  \noindent
+  \leading{5.5mm}
+  \textoabstract
+  \vspace{1.3cm}
+
+  \noindent
+  \textbf{Keywords:} \keywords
+}
+% ------------------------------------------------------------ %
+% Epígrafe                                                     %
+% ------------------------------------------------------------ %
+
+% ------------------------------------------------------------ %
+% Dedicatória                                                  %
+% ------------------------------------------------------------ %
+
+% ------------------------------------------------------------ %
+% Agradecimentos                                               %
+% ------------------------------------------------------------ %
 
 % ------------------------------------------------------------ %
 % Altera a forma de apresentação dos Captions                  %
