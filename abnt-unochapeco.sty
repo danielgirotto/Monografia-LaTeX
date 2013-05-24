@@ -331,17 +331,42 @@
   \noindent
   \textbf{Keywords:} \keywords
 }
+
 % ------------------------------------------------------------ %
 % Epígrafe                                                     %
 % ------------------------------------------------------------ %
+\newcommand{\epigrafe}[1]{%
+  \vspace*{\vfill}
+  \hspace{0.4\textwidth}
+  \begin{varwidth}{0.5\textwidth}
+    \leading{5mm} \raggedleft #1
+  \end{varwidth}
+  \newpage
+}
 
 % ------------------------------------------------------------ %
 % Dedicatória                                                  %
 % ------------------------------------------------------------ %
+\newcommand{\dedicatoria}[1]{%
+  \vspace*{\vfill}
+  \hspace{0.4\textwidth}
+  \begin{varwidth}{0.48\textwidth}
+    \leading{5mm} #1
+  \end{varwidth}
+  \newpage
+}
 
 % ------------------------------------------------------------ %
 % Agradecimentos                                               %
 % ------------------------------------------------------------ %
+\newcommand{\agradecimento}[1]{%
+  \vspace*{\vfill}
+  \hspace{0.4\textwidth}
+  \begin{varwidth}{0.48\textwidth}
+    \leading{5mm} #1
+  \end{varwidth}
+  \newpage
+}
 
 % ------------------------------------------------------------ %
 % Altera a forma de apresentação dos Captions                  %
