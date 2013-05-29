@@ -13,7 +13,7 @@ pdflatex monografia.tex ; okular monografia.pdf
 License
 =======
       Monografia-LaTeX
-      Copyright 2005 M. Y. Name
+      Copyright 2013 Daniel Girotto
       
       This work may be distributed and/or modified under the
       conditions of the LaTeX Project Public License, either version 1.3
