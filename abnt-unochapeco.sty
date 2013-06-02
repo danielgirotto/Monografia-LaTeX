@@ -292,10 +292,11 @@
     \normalfont{\textbf{\local, } \datadefesa}
   \end{center}
 }
+
 % ------------------------------------------------------------ %
 % Resumo                                                       %
 % ------------------------------------------------------------ %
-\renewcommand{\resumo}{%
+\renewcommand{\resumo}[2]{%
   \newpage
   \thispagestyle{empty}
   \begin{center}
@@ -305,18 +306,17 @@
 
   \vspace{2.5cm}
   \noindent
-  \leading{5.5mm}
-  \textoresumo
+  \leading{5.5mm} #1
   \vspace{1.3cm}
 
   \noindent
-  \textbf{Palavras-chave:} \palavraschave
+  \textbf{Palavras-chave:} #2
 }
 
 % ------------------------------------------------------------ %
 % Abstract                                                     %
 % ------------------------------------------------------------ %
-\renewcommand{\abstract}{%
+\renewcommand{\abstract}[2]{%
   \newpage
   \thispagestyle{empty}
   \begin{center}
@@ -326,12 +326,11 @@
 
   \vspace{2.5cm}
   \noindent
-  \leading{5.5mm}
-  \textoabstract
+  \leading{5.5mm} #1
   \vspace{1.3cm}
 
   \noindent
-  \textbf{Keywords:} \keywords
+  \textbf{Keywords:} #2
 }
 
 % ------------------------------------------------------------ %
