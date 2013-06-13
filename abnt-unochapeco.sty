@@ -394,3 +394,37 @@
   \end{center}
   \vspace{2.5cm} #2
 }
+
+% ------------------------------------------------------------ %
+% Altera a forma de apresentação da Bibliografia               %
+% ------------------------------------------------------------ %
+\renewenvironment{thebibliography}[1]{%
+  \thispagestyle{empty}%
+  \global\@topnum\z@%
+  \@afterindentfalse%
+  \@mkboth{\refname}{\refname}%
+  \ifthenelse{\boolean{ABNTincludeintoc}}%
+    {\ABNTaddcontentsline{toc}{chapter}{\MakeUppercase{\refname}}}%
+    {}%
+  \@makeschapterhead{\vspace{-1cm}\MakeUppercase{\refname}}%
+  \vspace*{1.5cm}
+  \@afterheading%
+  \list{\@biblabel{\@arabic\c@enumiv}}%
+      {\settowidth\labelwidth{\@biblabel{#1}}%
+        \leftmargin\labelwidth%
+        \advance\leftmargin\labelsep%
+        \@openbib@code%
+        \usecounter{enumiv}%
+        \let\p@enumiv\@empty%
+        \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+  \sloppy%
+  \espaco{simples}
+  \clubpenalty4000%
+  \@clubpenalty \clubpenalty%
+  \widowpenalty4000%
+  \sfcode`\.\@m%
+}
+{\def\@noitemerr
+      {\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist%
+}
