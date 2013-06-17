@@ -1,14 +1,24 @@
 Monografia-LaTeX (Unochapecó)
 =============================
 
-Template LaTeX do curso de ciência da Computação (Unochapecó)
+Este projeto é uma customização do abnTeX (ABsurd Norms for TeX) para a Unochapecó, uma versão desta suíte é distribuida 
+junto com esse projeto. Detalhes sobre customizações do abnTeX estão disponíveis neste [site] 
+(https://code.google.com/p/abntex2/wiki/ComoCustomizar).
+versões mais recentes do abnTeX podem ser encontradas no site [abnTeX] (https://code.google.com/p/abntex2/).
 
 ## Como usar?
 ```
 git clone git@github.com:danielgirotto/Monografia-LaTeX.git 
 cd Monografia-LaTeX
-pdflatex monografia.tex ; okular monografia.pdf
+pdflatex monografia.tex
 ```
+
+Recomenda-se fortemente o uso de uma IDE para o LaTeX:
+ - [Kile] (http://kile.sourceforge.net/)
+ - [MikTex] (http://miktex.org/)
+ - [TeXshop] (http://pages.uoregon.edu/koch/texshop/)
+ - [TeXPad] (http://www.textpad.com/)
+
 
 License
 =======
