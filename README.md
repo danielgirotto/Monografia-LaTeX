@@ -1,9 +1,8 @@
 Monografia-LaTeX (Unochapecó)
 =============================
 
-Este projeto é uma customização do abnTeX (ABsurd Norms for TeX) para a Unochapecó, uma versão desta suíte é distribuida 
-junto com esse projeto. Detalhes sobre customizações do abnTeX estão disponíveis neste [site] 
-(https://code.google.com/p/abntex2/wiki/ComoCustomizar).
+Customização do abnTeX (ABsurd Norms for TeX) para a Unochapecó. Detalhes sobre customizações do abnTeX estão 
+disponíveis no [site] (https://code.google.com/p/abntex2/wiki/ComoCustomizar).
 versões mais recentes do abnTeX podem ser encontradas no site [abnTeX] (https://code.google.com/p/abntex2/).
 
 ## Como usar?
@@ -13,7 +12,7 @@ cd Monografia-LaTeX
 pdflatex monografia.tex
 ```
 
-Recomenda-se fortemente o uso de uma IDE para o LaTeX:
+O comando "pdflatex" é apenas uma forma de fazer, recomenda-se fortemente o uso de uma IDE para o LaTeX:
  - [Kile] (http://kile.sourceforge.net/)
  - [MikTex] (http://miktex.org/)
  - [TeXshop] (http://pages.uoregon.edu/koch/texshop/)
