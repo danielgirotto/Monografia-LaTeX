@@ -11,9 +11,11 @@ encontradas na página ofical do projeto.
 git clone git@github.com:danielgirotto/Monografia-LaTeX.git 
 cd Monografia-LaTeX
 pdflatex monografia.tex
+bibtext monografia
+pdflatex monografia.tex ; pdflatex monografia.tex
 ```
 
-O comando "pdflatex" é apenas uma forma de fazer, recomenda-se fortemente o uso de uma IDE LaTeX:
+Os comandos "pdflatex" e "bibtex" são apenas uma forma de compilar, recomenda-se fortemente o uso de uma IDE LaTeX:
  - [Kile] (http://kile.sourceforge.net/)
  - [MikTex] (http://miktex.org/)
  - [TeXshop] (http://pages.uoregon.edu/koch/texshop/)
