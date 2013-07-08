@@ -15,7 +15,8 @@ bibtext monografia
 pdflatex monografia.tex ; pdflatex monografia.tex
 ```
 
-Os comandos "pdflatex" e "bibtex" são apenas uma forma de compilar, recomenda-se fortemente o uso de uma IDE LaTeX:
+Os comandos "pdflatex" e "bibtex" são apenas uma forma de compilar, recomenda-se fortemente o uso de uma
+IDE para o LaTeX:
  - [Kile] (http://kile.sourceforge.net/)
  - [MikTex] (http://miktex.org/)
  - [TeXshop] (http://pages.uoregon.edu/koch/texshop/)
