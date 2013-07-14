@@ -1,4 +1,4 @@
-Monografia-LaTeX (Unochapecó)
+templateLaTeX (Unochapecó)
 =============================
 
 Customização do [abnTeX] (https://code.google.com/p/abntex2/) (ABsurd Norms for TeX) para a Unochapecó. Detalhes
@@ -22,7 +22,7 @@ IDE para o LaTeX:
  - [TeXshop] (http://pages.uoregon.edu/koch/texshop/)
  - [TeXPad] (http://www.textpad.com/)
 
-License
+Licença
 =======
       Monografia-LaTeX
       Copyright 2013 Daniel Girotto
