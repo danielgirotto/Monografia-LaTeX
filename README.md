@@ -1,4 +1,4 @@
-templateLaTeX (Unochapecó)
+Monografia-LaTeX (Unochapecó)
 =============================
 
 Customização do [abnTeX] (https://code.google.com/p/abntex2/) (ABsurd Norms for TeX) para a Unochapecó. Detalhes
