@@ -4,7 +4,7 @@ Monografia-LaTeX (Unochapecó)
 Customização do [abnTeX] (https://code.google.com/p/abntex2/) (ABsurd Norms for TeX) para a Unochapecó. Detalhes
 sobre customizações do abnTeX estão disponíveis no [site] (https://code.google.com/p/abntex2/wiki/ComoCustomizar).
 Para utilizar este modelo é preciso instalar o pacote abnTeX, as instruções de como instalar esse pacote podem ser
-encontradas na página ofical do projeto.
+encontradas na página oficial do projeto.
 
 ## Como usar?
 ```
